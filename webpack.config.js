@@ -1,55 +1,41 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const merge = require('webpack-merge');
+const pug = require('./webpack/pug');
+const devserver = require('./webpack/devserver');
 
 const PATHS = {
     source: path.join(__dirname, 'src'),
     build: path.join(__dirname, 'build')
 };
 
-const common = {
-    entry: {
-            'index': PATHS.source + '/pages/index/index.js',
-            'blog': PATHS.source + '/pages/blog/blog.js'
+const common = merge ([
+    {
+        entry: {
+                'index': PATHS.source + '/pages/index/index.js',
+                'blog': PATHS.source + '/pages/blog/blog.js'
+        },
+
+        output: {
+            path: PATHS.build,
+            filename: './js/[name].js'
+        },
+
+        plugins: [
+            new HtmlWebpackPlugin({
+                filename: 'index.html',
+                chunks: ['index'],
+                template: PATHS.source + '/pages/index/index.pug'
+            }),
+            new HtmlWebpackPlugin({
+                filename: 'blog.html',
+                chunks: ['blog'],
+                template: PATHS.source + '/pages/blog/blog.pug'
+            })
+        ],
     },
-
-    output: {
-        path: PATHS.build,
-        filename: './js/[name].js'
-    },
-
-    plugins: [
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            chunks: ['index'],
-            template: PATHS.source + '/pages/index/index.pug'
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'blog.html',
-            chunks: ['blog'],
-            template: PATHS.source + '/pages/blog/blog.pug'
-        })
-    ],
-
-    module: {
-        rules: [
-            {
-                test: /\.pug$/,
-                loader: 'pug-loader',
-                options: {
-                    pretty: true
-                }
-            }
-        ]
-    }
-}
-
-const developmentConfig = {
-    devServer: {
-        overlay: true,
-        port: 9000
-    },
-};
+    pug()
+]);
 
 
 module.exports = function (env) {
@@ -57,10 +43,9 @@ module.exports = function (env) {
         return common;
     }
     if (env === 'development') {
-        return Object.assign(
-            {},
+        return merge([
             common,
-            developmentConfig
-        );
+            devserver()
+        ]);
     }
 };
