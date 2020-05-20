@@ -1,0 +1,29 @@
+1) npm install webpack webpack-cli webpack-dev-server path --save-dev
+
+3) npm i --save-dev pug pug-loader
+
+
+
+
+//  в джейсон
+/*
+"scripts": {
+    "dev": "webpack-dev-server --open --mode development",
+    "build": "webpack --mode production"
+  },
+
+  */
+
+
+// В конфиге
+  /*
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, './dist'),
+    publicPath: '/dist'
+  },
+  devServer: {
+    overlay: true
+  },
+}
+*/
