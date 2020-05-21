@@ -1,12 +1,14 @@
-module.exports = function (paths) {
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+module.exports = function () {
     return {
         module: {
             rules: [
                 {
-                    test: /\.scss$/,
-                    include: paths,
+                    test: /\.s*css$/, //иногда импортируем чистый css - лучше сразу включить его в работу
+                    // include: paths, Если знаешь зачем - то реализуй, но при вызове из конфига ты не передавал параметры
                     use: [
-                        'style-loader',
+                        MiniCssExtractPlugin.loader,
                         'css-loader',
                         'sass-loader'
                     ]
