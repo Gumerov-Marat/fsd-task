@@ -5,7 +5,8 @@ const merge = require('webpack-merge');
 const pug = require('./webpack/pug');
 const devserver = require('./webpack/devserver');
 const sass = require('./webpack/sass');
-// const minicss = require('./webpack/minicss'); Этот файл открыл и закрыл... в общем, все в одном sass.js
+const images = require('./webpack/images')
+
 
 const PATHS = {
     source: path.join(__dirname, 'src'),
@@ -13,6 +14,7 @@ const PATHS = {
 };
 
 const common = merge([{
+        mode: 'development',  //Удалить позже
         entry: {
             'index': PATHS.source + '/js/index.js',
             //'blog': PATHS.source + '/pages/blog/blog.js'
@@ -42,7 +44,8 @@ const common = merge([{
         ],
     },
     pug(),
-    sass()
+    sass(),
+    images(),
 ]);
 
 
