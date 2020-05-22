@@ -14,8 +14,8 @@ const PATHS = {
 
 const common = merge([{
         entry: {
-            'index': PATHS.source + '/pages/index/index.js',
-            'blog': PATHS.source + '/pages/blog/blog.js'
+            'index': PATHS.source + '/js/index.js',
+            //'blog': PATHS.source + '/pages/blog/blog.js'
         }, //Оставил тебе твой вариант, но нам нужен один вход. Чтобы не ловить траблы с путями - index.js лучше расположить в корне src
 
         output: {
