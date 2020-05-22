@@ -1,16 +1,7 @@
-import '../pages/index/index.scss';
-import '../pages/blog/blog.scss';
-
-// import createMenu from '../../components/menu/menu';
-// var menu = createMenu(['Главная', 'Блог'], 'menu');
-// document.body.appendChild(menu);
-
-console.log('in index.js')
+import '../template/template.scss';
+import '../pages/colors-and-types/colors-and-types.scss';
 
 
 
-// import createMenu from '../../components/menu/menu';
-// var menu = createMenu(['Главная', 'Блог'], 'menu');
-// document.body.appendChild(menu);
+console.log('template.scss')
 
-console.log('in blog.js')
