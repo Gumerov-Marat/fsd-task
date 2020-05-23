@@ -9,27 +9,33 @@ const images = require('./webpack/images')
 
 
 const PATHS = {
-    source: path.join(__dirname, 'src'),
+    source: path.join(__dirname, './src'),
     build: path.join(__dirname, 'build')
 };
 
 const common = merge([{
-        mode: 'development',  //Удалить позже
+        mode: 'development',
+        resolve: {
+            alias: {
+                Src: path.resolve(__dirname, './src'),
+                Modules: path.resolve(__dirname, './src/modules')
+            }
+        },
         entry: {
-            'index': PATHS.source + '/js/index.js',
+            'index': PATHS.source + '/index.js'
             //'blog': PATHS.source + '/pages/blog/blog.js'
         }, //Оставил тебе твой вариант, но нам нужен один вход. Чтобы не ловить траблы с путями - index.js лучше расположить в корне src
 
         output: {
             path: PATHS.build,
-            filename: 'js/[name].js' // тут убрал слэш впереди - он читался как абсолютный адрес
+            filename: '[name].js' // тут убрал слэш впереди - он читался как абсолютный адрес
         },
 
         plugins: [
             new HtmlWebpackPlugin({
-                filename: 'colors-and-types.html',
-                chunks: ['colors-and-types'],
-                template: PATHS.source + '/pages/colors-and-types/colors-and-types.pug'
+                filename: 'colors-and-type.html',
+                chunks: ['colors-and-type'],
+                template: PATHS.source + '/pages/colors-and-type/colors-and-type.pug'
             }),
             // new HtmlWebpackPlugin({
             //     filename: 'blog.html',
