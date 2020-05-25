@@ -1,0 +1,34 @@
+extends ./template/template.pug
+
+
+append vars
+  -
+    //const pageFormElement = {linkPage: 'form-elements.html', namePage: 'FORM ELEMENTS'}
+    const pageColorTypes = {linkPage: 'colors-and-types.html', namePage: 'COLOR & TYPES'}
+    // const pageCards = {linkPage: 'cards.html', namePage: 'CARDS'}
+    // const pageHeaderFooters = {linkPage: 'headers-and-footers.html', namePage: 'HEADER & FOOTERS'}
+    // const pageLandingPage = {linkPage: 'landing-page.html', namePage: 'LANDING PAGE'}
+    // const pageSearchRoom = {linkPage: 'search-room.html', namePage: 'SEARCH ROOM'}
+    // const pageRoomDetails = {linkPage: 'room-details.html', namePage: 'ROOM DETAILS'}
+
+    const pageList = [pageColorTypes]
+    //const pageList = [pageLandingPage, pageSearchRoom, pageRoomDetails, pageColorTypes, pageFormElement, pageCards, pageHeaderFooters]
+
+
+block title
+  | Learning project. Main menu
+
+
+block main
+  +page-menu({items: pageList})
+
+
+mixin page-menu(props = {})
+
+  - const {items} = props
+
+  ul.menu-page
+  each listItem in items
+    - const {linkPage, namePage} = listItem
+    li.menu-page__item
+      a(href = linkPage)= namePage
