@@ -1,4 +1,4 @@
-import '../pages/index/index.scss';
+import './index.scss';
 //import '../pages/blog/blog.scss';
 
 

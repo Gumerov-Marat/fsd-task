@@ -14,7 +14,7 @@ const PATHS = {
 
 const common = merge([{
         entry: {
-            'index': PATHS.source + '/js/index.js',
+            'index': PATHS.source + '/index.js',
             //'blog': PATHS.source + '/pages/blog/blog.js'
         }, //Оставил тебе твой вариант, но нам нужен один вход. Чтобы не ловить траблы с путями - index.js лучше расположить в корне src
 
@@ -27,7 +27,7 @@ const common = merge([{
             new HtmlWebpackPlugin({
                 filename: 'index.html',
                 chunks: ['index'],
-                template: PATHS.source + '/pages/index/index.pug'
+                template: PATHS.source + '/index.pug'
             }),
             // new HtmlWebpackPlugin({
             //     filename: 'blog.html',
