@@ -39,7 +39,7 @@ const common = merge([{
             }),
             new HtmlWebpackPlugin({
                 filename: 'colors-and-types.html',
-                chunks: ['blog'], //чанки на страницах тож надо будет убрать - у нас один файл стилей. Как для понимания и потренить - норм
+                chunks: ['colors-and-types'], //чанки на страницах тож надо будет убрать - у нас один файл стилей. Как для понимания и потренить - норм
                 template: PATHS.source + '/pages/colors-and-types/colors-and-types.pug'
             }),
 
