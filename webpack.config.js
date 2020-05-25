@@ -29,11 +29,11 @@ const common = merge([{
                 chunks: ['index'],
                 template: PATHS.source + '/pages/index/index.pug'
             }),
-            new HtmlWebpackPlugin({
-                filename: 'blog.html',
-                chunks: ['blog'], //чанки на страницах тож надо будет убрать - у нас один файл стилей. Как для понимания и потренить - норм
-                template: PATHS.source + '/pages/blog/blog.pug'
-            }),
+            // new HtmlWebpackPlugin({
+            //     filename: 'blog.html',
+            //     chunks: ['blog'], //чанки на страницах тож надо будет убрать - у нас один файл стилей. Как для понимания и потренить - норм
+            //     template: PATHS.source + '/pages/blog/blog.pug'
+            // }),
 
             // Это важный блок и он тут нужен. Ввверху импорт плагина
             new MiniCssExtractPlugin({
