@@ -34,12 +34,10 @@ const common = merge([{
         plugins: [
             new HtmlWebpackPlugin({
                 filename: 'index.html',
-                chunks: ['index'],
                 template: PATHS.source + '/index.pug'
             }),
             new HtmlWebpackPlugin({
                 filename: 'colors-and-types.html',
-                chunks: ['colors-and-types'], //чанки на страницах тож надо будет убрать - у нас один файл стилей. Как для понимания и потренить - норм
                 template: PATHS.source + '/pages/colors-and-types/colors-and-types.pug'
             }),
 
