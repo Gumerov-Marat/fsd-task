@@ -13,6 +13,13 @@ const PATHS = {
 };
 
 const common = merge([{
+        mode: 'development',
+            resolve: {
+                alias: {
+                    Src: path.resolve(__dirname, './src'),
+                    Pages: path.resolve(__dirname, './src/pages')
+                }
+            },
         entry: {
             'index': PATHS.source + '/index.js',
             //'blog': PATHS.source + '/pages/blog/blog.js'

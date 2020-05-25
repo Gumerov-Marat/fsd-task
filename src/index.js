@@ -1,3 +1,4 @@
+import App from './App';
 import './index.scss';
 //import '../pages/blog/blog.scss';
 
