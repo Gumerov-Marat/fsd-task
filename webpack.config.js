@@ -22,6 +22,7 @@ const common = merge([{
             },
         entry: {
             'index': PATHS.source + '/index.js',
+            'colors-and-types': PATHS.source + '/pages/colors-and-types/colors-and-types.js'
             //'blog': PATHS.source + '/pages/blog/blog.js'
         }, //Оставил тебе твой вариант, но нам нужен один вход. Чтобы не ловить траблы с путями - index.js лучше расположить в корне src
 
@@ -36,11 +37,11 @@ const common = merge([{
                 chunks: ['index'],
                 template: PATHS.source + '/index.pug'
             }),
-            // new HtmlWebpackPlugin({
-            //     filename: 'blog.html',
-            //     chunks: ['blog'], //чанки на страницах тож надо будет убрать - у нас один файл стилей. Как для понимания и потренить - норм
-            //     template: PATHS.source + '/pages/blog/blog.pug'
-            // }),
+            new HtmlWebpackPlugin({
+                filename: 'colors-and-types.html',
+                chunks: ['blog'], //чанки на страницах тож надо будет убрать - у нас один файл стилей. Как для понимания и потренить - норм
+                template: PATHS.source + '/pages/colors-and-types/colors-and-types.pug'
+            }),
 
             // Это важный блок и он тут нужен. Ввверху импорт плагина
             new MiniCssExtractPlugin({
