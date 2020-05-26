@@ -1,1 +1,1 @@
-export { ColorAndType } from './colors-and-types.js';
+export { ColorAndType, printFunction} from './colors-and-types';
