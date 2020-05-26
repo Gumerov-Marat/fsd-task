@@ -7,7 +7,7 @@
     "dev": "webpack --mode development",
     "server": "webpack-dev-server --open --mode development",
     "build": "webpack --mode production",
-    "envstart": "webpack-dev-server --env development",
+    "start": "webpack-dev-server --env development",
     "envbuild": "webpack --env production"
   },
   "repository": {

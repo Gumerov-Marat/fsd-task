@@ -5,7 +5,9 @@ const merge = require('webpack-merge');
 const pug = require('./webpack/pug');
 const devserver = require('./webpack/devserver');
 const sass = require('./webpack/sass');
-// const minicss = require('./webpack/minicss'); Этот файл открыл и закрыл... в общем, все в одном sass.js
+const images = require('./webpack/images');
+const fonts = require('./webpack/fonts');
+
 
 const PATHS = {
     source: path.join(__dirname, 'src'),
@@ -34,12 +36,10 @@ const common = merge([{
         plugins: [
             new HtmlWebpackPlugin({
                 filename: 'index.html',
-                chunks: ['index'],
                 template: PATHS.source + '/index.pug'
             }),
             new HtmlWebpackPlugin({
                 filename: 'colors-and-types.html',
-                chunks: ['colors-and-types'], //чанки на страницах тож надо будет убрать - у нас один файл стилей. Как для понимания и потренить - норм
                 template: PATHS.source + '/pages/colors-and-types/colors-and-types.pug'
             }),
 
@@ -50,7 +50,9 @@ const common = merge([{
         ],
     },
     pug(),
-    sass()
+    sass(),
+    images(),
+    fonts()
 ]);
 
 

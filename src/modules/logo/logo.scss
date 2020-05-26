@@ -1,0 +1,16 @@
+.logo {
+  padding: 0;
+  line-height: 0;
+  user-select: none;
+
+  &__svg {
+    height: 40px;
+  }
+
+  &_gray &__svg {
+    height: 48px;
+    width: 48px;
+  }
+}
+
+

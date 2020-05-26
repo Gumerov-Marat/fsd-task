@@ -1,7 +1,8 @@
-import App from './App';
+
+import * as App from './app.js';
 import './index.scss';
-//import '../pages/blog/blog.scss';
 
 
-console.log('in index.js')
-
+console.log("Блок вывода главного Индекс ДЖС");
+App.ColorAndType();
+console.log("ЗАКОНЧЕН Блок вывода главного Индекс ДЖС" );
