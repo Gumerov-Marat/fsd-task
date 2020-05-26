@@ -48,7 +48,9 @@ const common = merge([{
         ],
     },
     pug(),
-    sass()
+    sass(),
+    images(),
+    fonts()
 ]);
 
 

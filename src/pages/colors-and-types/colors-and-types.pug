@@ -1,7 +1,35 @@
 extends ../../template/template.pug
 
+
+block append meta
+  meta(name="keywords", content="color and types")
+  meta(name="description" content="FSD task #2. Page color&types")
+
 block title
   | Colors and type
 
 block main
-  p.paragraph страница колорс энд тайпс
+  imclude ../../modules/logo/logo
+
+  section.elements
+    .elements__logo
+      +logo({mods: 'gray'})
+  +free-space({height: '60px'})
+  
+mixin free-space(props = {})
+  //- Задает свободное пространство на странице
+  //- Принимает объект props с ключами
+  //- width   {string}    ширина отступа
+  //- height  {string}    высота отступа
+    Примеры вызова
+    +free-space({height: '60px'})
+    +free-space({height: '3rem', width: '50px'})
+  -
+    let styleString = ''
+    if (typeof(props.width) !== 'undefined' && props.width) {
+      styleString += 'width:' + props.width + ';'
+    }
+    if (typeof(props.height) !== 'undefined' && props.height) {
+      styleString += 'height:' + props.height + ';'
+    }
+  .free-space(style= styleString)
