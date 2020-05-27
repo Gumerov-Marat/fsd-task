@@ -1,4 +1,6 @@
 
+require.context('./', true, /\.(png|svg|jpg|gif)$/);
+
 import * as App from './app.js';
 import './index.scss';
 
