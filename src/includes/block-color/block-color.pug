@@ -1,0 +1,28 @@
+mixin block-color(props={})
+  //- Микс задает место для блока с цветом на странице, добавляет подписи, задает размер
+  //- Принимает объект props с ключами
+  //-   title       {string}  название цвета со страницы
+  //-   color       {string}  цвет в любом формате (hex, RGB, RGBA)
+
+    Пример вызова
+      +block-color({
+        title: 'LightGrey',
+        color: #B0B0B0
+          })
+
+  -
+    var colorRGBA    = ''
+    var colorOpacity = '1'
+    var colorHex = '#'
+    if (props.color[0] !== '#') {
+      //- Если цвет RGB или RGBA - получаем список десятичных значений
+      colorRGBA = props.color.split('(')[1].split(')')[0].split(',')
+      colorOpacity = (colorRGBA.length === 4) ? colorRGBA[3] : 1
+      for (let i = 0; i < 3; i++) {
+        var itemHex = Number(colorRGBA[i]).toString(16)
+        colorHex += (itemHex.length == 1 ) ? '0' + itemHex : itemHex
+      }
+    } else {
+      colorHex = props.color
+    }
+    var styleBlockColor = 'background-color:'+colorHex+';' + 'opacity:' + colorOpacity + ';'

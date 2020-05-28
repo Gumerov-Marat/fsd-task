@@ -1,0 +1,44 @@
+mixin type-side(props = {})
+
+  //- Список тегов и используемых с ними шрифтов
+  //- Принимает объект props с ключами
+  //- typeStrings   {object}  список элементов
+  //-     tagName             описываемый тег
+  //-     tagTitle            назвние тега на листе*
+  //-     description         описание назначения в проекте
+  //-
+  //- * - отличие названия тега на листе в пункте Body: на листе 'Body', в коде требуется тег 'p'
+
+    Пример вызова
+    +type-side({
+        typeStrings: [
+          {
+          tagName: 'h1',
+          tagTitle: 'H1',
+          description: 'This one is the sub-section or widget title'
+          },
+          {
+          tagName: 'p',
+          tagTitle: 'Body',
+          description: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.'
+          }
+        ]
+      })
+
+  -
+
+    let tagNameClass = ' class="block-types__title">'
+    let tagDescriptionClass = ' class="block-types__description">'
+
+  each typeRow, index in props.typeStrings
+
+    -
+      let tagOpen = '<' + typeRow.tagName
+      let tagClose = '</' + typeRow.tagName + '>'
+
+    .block-types
+      |
+      != tagOpen + tagNameClass
+      != typeRow.tagTitle + tagClose
+      != tagOpen + tagDescriptionClass
+      != typeRow.description + tagClose
