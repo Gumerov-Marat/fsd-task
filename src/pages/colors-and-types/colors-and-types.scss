@@ -1,3 +1,16 @@
-.paragraph {
-  color: green;
+@import '../../modules/logo/logo.scss';
+@import '../../template/template.scss';
+
+body {
+  width: 100%;
+}
+
+.free-space {
+  content: '';
+}
+
+.elements {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
