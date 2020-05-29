@@ -1,0 +1,22 @@
+extends ../../template/template
+
+//- Used mikisnes are available at the end of the page
+//- mixin block-lib(props={})              mixin places block without header
+//- mixin block-lib-self-title(props={})   mixin places block with title
+//- mixin free-space(props={})             nixin sets the indentation in width and height
+
+block meta
+  meta(name="keywords", content="toxin, form elements")
+  meta(name="description" content="FSD. form elements")
+
+block title
+  | Form Elements
+
+block main
+  //-includes
+  include ../../modules/logo/logo
+
+section.elements
+    .elements__logo
+      +logo({mods: 'gray'})
+  +free-space({height: '57px'})
