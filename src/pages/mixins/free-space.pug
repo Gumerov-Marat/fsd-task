@@ -1,0 +1,19 @@
+mixin free-space(props = {})
+  //- Задает свободное пространство на странице
+  //- Принимает объект props с ключами
+  //- width   {string}    ширина отступа
+  //- height  {string}    высота отступа
+
+    Примеры вызова
+    +free-space({height: '60px'})
+    +free-space({height: '3rem', width: '50px'})
+
+  -
+    let styleString = ''
+    if (typeof(props.width) !== 'undefined' && props.width) {
+      styleString += 'width:' + props.width + ';'
+    }
+    if (typeof(props.height) !== 'undefined' && props.height) {
+      styleString += 'height:' + props.height + ';'
+    }
+  .free-space(style= styleString)
